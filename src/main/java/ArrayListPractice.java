@@ -9,8 +9,7 @@ public class ArrayListPractice {
      */
     public static int GetFirst(ArrayList<Integer> numbers) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        return numbers.get(0);
     }
 
     /**
@@ -21,8 +20,7 @@ public class ArrayListPractice {
      */
     public static int GetThird(ArrayList<Integer> numbers) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        return numbers.get(2);
     }
 
     /**
@@ -33,8 +31,8 @@ public class ArrayListPractice {
      */
     public static int GetLast(ArrayList<Integer> numbers) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        return numbers.get(numbers.size()-1);
+
     }
 
     /**
@@ -45,8 +43,11 @@ public class ArrayListPractice {
      */
     public static int GetSum(ArrayList<Integer> numbers) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        int total = 0;
+        for(int i : numbers) {
+            total += i;
+        }
+        return total;
     }
 
     /**
@@ -74,8 +75,12 @@ String numberList = "";
      */
     public static int GetMax(ArrayList<Integer> numbers) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        int max = numbers.get(0);
+        for(int i : numbers){
+            if(numbers.get(i)>max)
+                max = numbers.get(i);
+        }
+        return max;
     }
 
     /**
@@ -94,8 +99,19 @@ String numberList = "";
      */
     public static ArrayList<Integer> CreateNumberArray(int first, int last) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        ArrayList<Integer> numbers = new ArrayList<Integer>();
+            if(first>last || first == last)
+                return numbers;
+            else
+            {
+                for(int i = first; i < last; i++){
+                    numbers.add(i);
+                }
+
+
+            }
+            return numbers;
+
     }
 
     /**
@@ -107,8 +123,11 @@ String numberList = "";
      */
     public static Student GetFirstStudentWithFavoriteColor(ArrayList<Student> students, String color) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        for(Student student : students){
+            if(student.GetFavoriteColor().equals(color));
+                return student;
+        }
+        return null;
     }
 
     /**
@@ -120,8 +139,10 @@ String numberList = "";
      */
     public static String GetFavoriteColorOfStudent(ArrayList<Student> students, String name) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        for(Student student : students)
+            if(student.GetName().equals(name))
+                return(student.GetFavoriteColor());
+
     }
 
     /**
