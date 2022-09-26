@@ -139,10 +139,13 @@ String numberList = "";
      */
     public static String GetFavoriteColorOfStudent(ArrayList<Student> students, String name) {
 
-        for(Student student : students)
-            if(student.GetName().equals(name))
-                return(student.GetFavoriteColor());
+        for (Student student : students) {
+            if (student.GetName().equals(name)) {
+                return (student.GetFavoriteColor());
 
+            }
+        }
+        return null;
     }
 
     /**
@@ -152,9 +155,15 @@ String numberList = "";
      * @return The tallest student in the list.
      */
     public static Student GetTallestStudent(ArrayList<Student> students) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        int max = students.get(0).GetHeight();
+        Student tallest = students.get(0);
+        for(Student student: students) {
+            if (student.GetHeight() > max) {
+                max = student.GetHeight();
+                tallest = student;
+            }
+        }
+        return tallest;
     }
 
     /**
@@ -171,8 +180,12 @@ String numberList = "";
      */
     public static ArrayList<Student> CreateStudentArray(ArrayList<String> names, ArrayList<Integer> heights, ArrayList<Integer> gradeLevels, ArrayList<String> favoriteColors, ArrayList<BankAccount> bankAccounts) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        ArrayList<Student> students = new ArrayList<Student>();
+            for(int i = 0; i < students.size(); i++){
+            students.add(i, new Student((names.get(i)), (heights.get(i)), (gradeLevels.get(i)), (favoriteColors.get(i)), (bankAccounts.get(i))));
+        }
+            return students;
+
     }
 
     /**
@@ -189,8 +202,9 @@ String numberList = "";
      */
     public static String GetTeamsString(ArrayList<ArrayList<Student>> teams) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        String list = "";
+        for(int i = 0; i < teams.size(); i++)
+            for(int c = 0; i <)
     }
 
     /**
