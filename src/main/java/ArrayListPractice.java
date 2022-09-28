@@ -204,7 +204,10 @@ String numberList = "";
 
         String list = "";
         for(int i = 0; i < teams.size(); i++)
-            for(int c = 0; i <)
+            for(int c = 0; c < teams.get(i).size(); c++)
+                list += teams.get(i).get(c);
+
+        return list;
     }
 
     /**
@@ -216,8 +219,11 @@ String numberList = "";
      */
     public static void UpdateFavoriteColor(ArrayList<Student> students, String name, String newFavoriteColor) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        for(Student student: students)
+            if(student.GetName().equals(name))
+                student.SetFavoriteColor(newFavoriteColor);
+
+
     }
 
     /**
@@ -229,8 +235,11 @@ String numberList = "";
      */
     public static ArrayList<Student> GetStudentsInGradeLevel(ArrayList<Student> students, int gradeLevel) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        ArrayList<Student> inGradeLevel = new ArrayList<>();
+        for(Student student : students)
+            if(student.GetGradeLevel() == gradeLevel)
+                inGradeLevel.add(student);
+        return inGradeLevel;
     }
 
     /**
@@ -245,8 +254,9 @@ String numberList = "";
      */
     public static boolean TransferMoney(ArrayList<Student> students, String fromStudentName, String toStudentName, double amount) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        for(Student student : students)
+            if(student.GetName().equals(fromStudentName))
+
     }
 
     /**
