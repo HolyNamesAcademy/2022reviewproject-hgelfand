@@ -19,7 +19,6 @@ public class ArrayListPractice {
      * @return The third element in the list.
      */
     public static int GetThird(ArrayList<Integer> numbers) {
-
         return numbers.get(2);
     }
 
