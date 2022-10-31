@@ -45,11 +45,13 @@ public class BankAccount {
     public double Deposit(double amount)
     {
 
-        if(amount<0)
+        if(amount<0) {
             System.out.print("Sorry, the amount deposited must be greater than 0.");
+            return 0;
+        }
         else
             accountBalance+=amount;
-        return accountBalance;
+        return amount;
     }
 
     /**
@@ -67,13 +69,17 @@ public class BankAccount {
      */
     public double Withdraw(double amount)
     {
-        if(amount<0)
+        if(amount<0) {
             System.out.print("Sorry, the amount withdrawn must be greater than 0.");
-        if(amount>accountBalance)
+            return 0;
+        }
+        if(amount>accountBalance) {
             System.out.print("Sorry, you cannot withdraw more than the account balance.");
+            return 0;
+        }
         else
             accountBalance-=amount;
-        return accountBalance;
+        return amount;
     }
 
     /**

@@ -74,11 +74,12 @@ String numberList = "";
      * @return The largest element in the list.
      */
     public static int GetMax(ArrayList<Integer> numbers) {
-
-        int max = numbers.get(0);
-        for(int i : numbers){
-            if(numbers.get(i)>max)
+        int max = 0;
+        for (int i = 0; i < numbers.size() - 1; i++){
+            if(numbers.get(i)>numbers.get(i+1))
                 max = numbers.get(i);
+            else
+                max = numbers.get(i+1);
         }
         return max;
     }
@@ -124,7 +125,7 @@ String numberList = "";
     public static Student GetFirstStudentWithFavoriteColor(ArrayList<Student> students, String color) {
 
         for(Student student : students){
-            if(student.GetFavoriteColor().equals(color));
+            if(student.GetFavoriteColor().equals(color))
                 return student;
         }
         return null;
@@ -203,10 +204,13 @@ String numberList = "";
     public static String GetTeamsString(ArrayList<ArrayList<Student>> teams) {
 
         String list = "";
-        for(int i = 0; i < teams.size(); i++)
-            for(int c = 0; c < teams.get(i).size(); c++)
+        for(int i = 0; i < teams.size(); i++) {
+            list += "Team" + i + ":";
+            for (int c = 0; c < teams.get(i).size(); c++) {
                 list += teams.get(i).get(c);
+            }
 
+        }
         return list;
     }
 
@@ -254,10 +258,28 @@ String numberList = "";
      */
     public static boolean TransferMoney(ArrayList<Student> students, String fromStudentName, String toStudentName, double amount) {
 
-        for(Student student : students)
-            if(student.GetName().equals(fromStudentName))
-
+        int toStudentI = -1;
+        int fromStudentI = -1;
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).GetName().equals(fromStudentName))
+                toStudentI = i;
+            if (students.get(i).GetName().equals(toStudentName))
+                fromStudentI = i;
+        }
+        if(amount < 0)
+            return false;
+        if(toStudentI == -1 || fromStudentI == -1)
+            return false;
+        else if(students.get(fromStudentI).GetBankAccount().GetBalance()<amount)
+            return false;
+        else {
+            students.get(fromStudentI).GetBankAccount().Withdraw(amount);
+            students.get(toStudentI).GetBankAccount().Deposit(amount);
+            return true;
+        }
     }
+
+
 
     /**
      * EXTRA CREDIT:
@@ -267,8 +289,14 @@ String numberList = "";
      */
     public static void UpdateGradeLevels(ArrayList<Student> students) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        for(int i = 0; i < students.size(); i++) {
+            if (students.get(i).GetGradeLevel() == 12) {
+                students.remove(i);
+                i--;
+            } else {
+                students.get(i).SetGradeLevel(students.get(i).GetGradeLevel() + 1);
+            }
+        }
     }
 
     /**
@@ -281,7 +309,7 @@ String numberList = "";
      */
     public static void SortByGradeAndName(ArrayList<Student> students) {
 
-        // write your code above and remove the line below
+
         throw new UnsupportedOperationException();
     }
 }
